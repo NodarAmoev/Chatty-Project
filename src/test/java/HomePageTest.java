@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import static com.codeborne.selenide.Selenide.sleep;
 import static org.junit.Assert.assertEquals;
-import static org.openqa.selenium.remote.tracing.EventAttribute.setValue;
+
 
 
 public class HomePageTest extends BaseTest {
@@ -16,9 +16,6 @@ public class HomePageTest extends BaseTest {
     @Test
     @Description("Check if it is present on the homepage")
     public void homeButtonIsDisplayed(){
-        String Username = "nodari.amoev2@gmail.com";
-        String Password = "Nodari234";
-
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
         loginPage.clickLoginButton ();
@@ -28,10 +25,10 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test
+    @Feature("Success User with Login")
+    @DisplayName("Click 'Home' button")
+    @Description("Click 'Home' button from the homepage")
     public void clickTheHomeButton(){
-        String Username = "nodari.amoev2@gmail.com";
-        String Password = "Nodari234";
-
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
         loginPage.clickLoginButton ();
@@ -41,11 +38,10 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test
+    @Feature("Success User with Login")
+    @DisplayName("Check if 'About' button is displayed")
+    @Description("Check if 'About' button is displayed on the homepage")
     public void aboutButtonIsDisplayed(){
-        String Username = "nodari.amoev2@gmail.com";
-        String Password = "Nodari234";
-
-
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
         loginPage.clickLoginButton ();
@@ -54,11 +50,10 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test
+    @Feature("Success User with Login")
+    @DisplayName("Click 'About' button")
+    @Description("Click 'About' button from the homepage")
     public void clickTheAboutButton(){
-        String Username = "nodari.amoev2@gmail.com";
-        String Password = "Nodari234";
-
-
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
         loginPage.clickLoginButton ();
@@ -68,10 +63,10 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test
+    @Feature("Success User with Login")
+    @DisplayName("Click 'Contact' button")
+    @Description("Click 'Contact' button from the homepage")
     public void clickTheContactButton() {
-        String Username = "nodari.amoev2@gmail.com";
-        String Password = "Nodari234";
-
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
         loginPage.clickLoginButton ();
@@ -81,11 +76,10 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test
+    @Feature("Success User with Login")
+    @DisplayName("Check if 'Contact' button is displayed")
+    @Description("Check if 'Contact' button is displayed on the homepage")
     public void contactIsDisplayed(){
-        String Username = "nodari.amoev2@gmail.com";
-        String Password = "Nodari234";
-
-
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
         loginPage.clickLoginButton ();
@@ -94,11 +88,10 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test
+    @Feature("Success User with Login")
+    @DisplayName("Check if Chatty logo is displayed")
+    @Description("Check if Chatty logo is displayed on the homepage")
     public void chattyLogoIsDisplayed(){
-        String Username = "nodari.amoev2@gmail.com";
-        String Password = "Nodari234";
-
-
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
         loginPage.clickLoginButton ();
@@ -107,11 +100,10 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test
+    @Feature("Success User with Login")
+    @DisplayName("Feedback form validation: Empty Name")
+    @Description("Check if feedback form shows validation message for empty Name field")
     public void feedbackEmptyName(){
-        String Username = "nodari.amoev2@gmail.com";
-        String Password = "Nodari234";
-
-
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
         loginPage.clickLoginButton ();
@@ -121,14 +113,14 @@ public class HomePageTest extends BaseTest {
         homePage.getMessageField ().setValue ("Я обнаружил один баг ...");
         homePage.clickSendMessage ();
         assertEquals ("Заполните это поле.",homePage.getNameField ().getAttribute ("validationMessage"));
+
     }
 
     @Test
+    @Feature("Success User with Login")
+    @DisplayName("Feedback form validation: Empty Email")
+    @Description("Check if feedback form shows validation message for empty Email field")
     public void feedbackEmptyEmail(){
-        String Username = "nodari.amoev2@gmail.com";
-        String Password = "Nodari234";
-
-
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
         loginPage.clickLoginButton ();
@@ -140,10 +132,10 @@ public class HomePageTest extends BaseTest {
         assertEquals ("Заполните это поле.",homePage.getEmailField ().getAttribute ("validationMessage"));
     }
     @Test
+    @Feature("Success User with Login")
+    @DisplayName("Feedback form validation: Empty Message")
+    @Description("Check if feedback form shows validation message for empty Message field")
     public void feedbackEmptyMessage(){
-        String Username = "nodari.amoev2@gmail.com";
-        String Password = "Nodari234";
-
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
         loginPage.clickLoginButton ();
@@ -156,10 +148,10 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test
+    @Feature("Success User with Login")
+    @DisplayName("Feedback form validation: Empty Fields")
+    @Description("Check if feedback form shows validation message when all fields are empty")
     public void feedbackFieldIsEmpty(){
-        String Username = "nodari.amoev2@gmail.com";
-        String Password = "Nodari234";
-
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
         loginPage.clickLoginButton ();
@@ -171,11 +163,10 @@ public class HomePageTest extends BaseTest {
         assertEquals ("Заполните это поле.",homePage.getNameField ().getAttribute ("validationMessage"));
     }
     @Test
+    @Feature("Success User with Login")
+    @DisplayName("Feedback form submission")
+    @Description("Check if feedback form can be submitted successfully")
     public void feedbackFillInTheFields() {
-        String Username = "nodari.amoev2@gmail.com";
-        String Password = "Nodari234";
-
-
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
         loginPage.clickLoginButton ();
@@ -190,16 +181,15 @@ public class HomePageTest extends BaseTest {
         sleep(3000);
     }
 
-    @Feature("Success Admin with Login ")
-    @DisplayName("Check if Home is displayed")
-    @Test
-    @Description("Check if it is present on the homepage")
-    public void homeButtonIsDisplayedAdmin(){
-        String Username = "amoev.nodari@gmail.com";
-        String Password = "Nodari234";
 
-        loginPage.enterUserName (Username);
-        loginPage.enterPassword (Password);
+
+    @Feature("Success Admin with Login")
+    @DisplayName("Check if Home is displayed for Admin")
+    @Test
+    @Description("Check if Home is displayed for Admin on the homepage")
+    public void homeButtonIsDisplayedAdmin(){
+        loginPage.enterUserName (adminUsername);
+        loginPage.enterPassword (adminPassword);
         loginPage.clickLoginButton ();
 
         homePage.getHomeButton ().isDisplayed ();
@@ -207,38 +197,36 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test
+    @Feature("Success Admin with Login")
+    @DisplayName("Click 'Home' button")
+    @Description("Click 'Home' button from the homepage")
     public void clickTheHomeButtonAdmin(){
-        String Username = "amoev.nodari@gmail.com";
-        String Password = "Nodari234";
-
-        loginPage.enterUserName (Username);
-        loginPage.enterPassword (Password);
+        loginPage.enterUserName (adminUsername);
+        loginPage.enterPassword (adminPassword);
         loginPage.clickLoginButton ();
         sleep(3000);
         homePage.getHomeButton ().click ();
     }
 
     @Test
+    @Feature("Success Admin with Login")
+    @DisplayName("Check if 'About' button is displayed")
+    @Description("Check if 'About' button is displayed on the homepage")
     public void aboutButtonIsDisplayedAdmin(){
-        String Username = "amoev.nodari@gmail.com";
-        String Password = "Nodari234";
-
-
-        loginPage.enterUserName (Username);
-        loginPage.enterPassword (Password);
+        loginPage.enterUserName (adminUsername);
+        loginPage.enterPassword (adminPassword);
         loginPage.clickLoginButton ();
 
         homePage.getAboutButton ().shouldHave (Condition.visible);
     }
 
     @Test
+    @Feature("Success Admin with Login")
+    @DisplayName("Click 'About' button")
+    @Description("Click 'About' button from the homepage")
     public void clickTheAboutButtonAdmin(){
-        String Username = "amoev.nodari@gmail.com";
-        String Password = "Nodari234";
-
-
-        loginPage.enterUserName (Username);
-        loginPage.enterPassword (Password);
+        loginPage.enterUserName (adminUsername);
+        loginPage.enterPassword (adminPassword);
         loginPage.clickLoginButton ();
 
         homePage.getAboutButton ().click ();
@@ -246,13 +234,12 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test
+    @Feature("Success Admin with Login")
+    @DisplayName("Click 'Contact' button")
+    @Description("Click 'Contact' button from the homepage")
     public void clickTheContactButtonAdmin() {
-        String Username = "amoev.nodari@gmail.com";
-        String Password = "Nodari234";
-
-
-        loginPage.enterUserName (Username);
-        loginPage.enterPassword (Password);
+        loginPage.enterUserName (adminUsername);
+        loginPage.enterPassword (adminPassword);
         loginPage.clickLoginButton ();
 
         homePage.getContactButton ().click ();
@@ -261,39 +248,36 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test
+    @Feature("Success Admin with Login")
+    @DisplayName("Check if 'Contact' button is displayed")
+    @Description("Check if 'Contact' button is displayed on the homepage")
     public void contactIsDisplayedAdmin(){
-        String Username = "amoev.nodari@gmail.com";
-        String Password = "Nodari234";
-
-
-        loginPage.enterUserName (Username);
-        loginPage.enterPassword (Password);
+        loginPage.enterUserName (adminUsername);
+        loginPage.enterPassword (adminPassword);
         loginPage.clickLoginButton ();
 
         homePage.getContactButton ().shouldHave (Condition.visible);
     }
 
     @Test
+    @Feature("Success Admin with Login")
+    @DisplayName("Check if Chatty logo is displayed")
+    @Description("Check if Chatty logo is displayed on the homepage")
     public void chattyLogoIsDisplayedAdmin(){
-        String Username = "amoev.nodari@gmail.com";
-        String Password = "Nodari234";
-
-
-        loginPage.enterUserName (Username);
-        loginPage.enterPassword (Password);
+        loginPage.enterUserName (adminUsername);
+        loginPage.enterPassword (adminPassword);
         loginPage.clickLoginButton ();
 
         headerPage.getChattyLogoTitle ().shouldHave (Condition.visible);
     }
 
     @Test
+    @Feature("Success Admin with Login")
+    @DisplayName("Feedback form validation: Empty Name")
+    @Description("Check if feedback form shows validation message for empty Name field")
     public void feedbackEmptyNameAdmin(){
-        String Username = "amoev.nodari@gmail.com";
-        String Password = "Nodari234";
-
-
-        loginPage.enterUserName (Username);
-        loginPage.enterPassword (Password);
+        loginPage.enterUserName (adminUsername);
+        loginPage.enterPassword (adminPassword);
         loginPage.clickLoginButton ();
 
         homePage.getContactButton ().click ();
@@ -304,13 +288,12 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test
+    @Feature("Success Admin with Login")
+    @DisplayName("Feedback form validation: Empty Email")
+    @Description("Check if feedback form shows validation message for empty Email field")
     public void feedbackEmptyEmailAdmin(){
-        String Username = "amoev.nodari@gmail.com";
-        String Password = "Nodari234";
-
-
-        loginPage.enterUserName (Username);
-        loginPage.enterPassword (Password);
+        loginPage.enterUserName (adminUsername);
+        loginPage.enterPassword (adminPassword);
         loginPage.clickLoginButton ();
 
         homePage.getContactButton ().click ();
@@ -320,12 +303,12 @@ public class HomePageTest extends BaseTest {
         assertEquals ("Заполните это поле.",homePage.getEmailField ().getAttribute ("validationMessage"));
     }
     @Test
+    @Feature("Success Admin with Login")
+    @DisplayName("Feedback form validation: Empty Message")
+    @Description("Check if feedback form shows validation message for empty Message field")
     public void feedbackEmptyMessageAdmin(){
-        String Username = "amoev.nodari@gmail.com";
-        String Password = "Nodari234";
-
-        loginPage.enterUserName (Username);
-        loginPage.enterPassword (Password);
+        loginPage.enterUserName (adminUsername);
+        loginPage.enterPassword (adminPassword);
         loginPage.clickLoginButton ();
 
         homePage.getContactButton ().click ();
@@ -336,12 +319,12 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test
+    @Feature("Success Admin with Login")
+    @DisplayName("Feedback form validation: Empty Fields")
+    @Description("Check if feedback form shows validation message when all fields are empty")
     public void feedbackFieldIsEmptyAdmin(){
-        String Username = "amoev.nodari@gmail.com";
-        String Password = "Nodari234";
-
-        loginPage.enterUserName (Username);
-        loginPage.enterPassword (Password);
+        loginPage.enterUserName (adminUsername);
+        loginPage.enterPassword (adminPassword);
         loginPage.clickLoginButton ();
 
         homePage.getContactButton ().click ();
@@ -351,13 +334,12 @@ public class HomePageTest extends BaseTest {
         assertEquals ("Заполните это поле.",homePage.getNameField ().getAttribute ("validationMessage"));
     }
     @Test
+    @Feature("Success Admin with Login")
+    @DisplayName("Feedback form submission")
+    @Description("Check if feedback form can be submitted successfully")
     public void feedbackFillInTheFieldsAdmin() {
-        String Username = "amoev.nodari@gmail.com";
-        String Password = "Nodari234";
-
-
-        loginPage.enterUserName (Username);
-        loginPage.enterPassword (Password);
+        loginPage.enterUserName (adminUsername);
+        loginPage.enterPassword (adminPassword);
         loginPage.clickLoginButton ();
 
         homePage.getContactButton ().click ();

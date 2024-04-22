@@ -18,6 +18,17 @@ public class ProfilePage {
     private SelenideElement inputSaveButton = $("[class=\"PasswordModal_pass_btn__eGL9h\"]");
     private SelenideElement inputSave = $("[type=\"submit\"]");
     private SelenideElement editButton = $("[data-test=\"post-header__plus\"]");
+    private SelenideElement addPicture = $(By.xpath ("//img[@alt='Uploaded']"));
+    private SelenideElement submitSave = $("[type=\"submit\"]");
+    private SelenideElement checkName = $(By.xpath ("//div[@class=\"sidebar__section\"]//p"));
+
+    public SelenideElement getAddPicture() {
+        return addPicture;
+    }
+
+    public SelenideElement getCheckName() {
+        return checkName;
+    }
 
     public void clickEditButton(){
         editButton.click ();

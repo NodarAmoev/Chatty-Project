@@ -1,3 +1,4 @@
+import com.codeborne.selenide.Condition;
 import org.junit.Test;
 
 import static com.codeborne.selenide.Selenide.sleep;
@@ -6,9 +7,6 @@ public class ProfileTest extends BaseTest {
 
     @Test
     public void changeProfileData(){
-        String Username = "nodari.amoev2@gmail.com";
-        String Password = "Nodari234";
-
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
         loginPage.clickLoginButton ();
@@ -25,18 +23,15 @@ public class ProfileTest extends BaseTest {
         profilePage.getGender ().click ();
         profilePage.getMale ().click ();
         profilePage.getInputSave ().click ();
+        profilePage.getCheckName ().shouldHave (Condition.text ("Makarov"));
         sleep(3000);
     }
 
     @Test
     public void emptyChangingProfile(){
-        String Username = "nodari.amoev2@gmail.com";
-        String Password = "Nodari234";
-
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
         loginPage.clickLoginButton ();
-
         headerPage.clickHeaderUser ();
         headerPage.dropdownMenuYourProfileClick ();
         profilePage.clickEditButton ();

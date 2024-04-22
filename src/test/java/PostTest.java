@@ -14,9 +14,6 @@ public class PostTest extends BaseTest{
     @Test
     @Description("Successful Post Creation after User Login")
     public void postCreate(){
-        String Username = "nodari.amoev2@gmail.com";
-        String Password = "Nodari234";
-
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
         loginPage.clickLoginButton ();
@@ -34,9 +31,6 @@ public class PostTest extends BaseTest{
 
     @Test
     public void uploadAnImageInPngFormat(){
-        String Username = "nodari.amoev2@gmail.com";
-        String Password = "Nodari234";
-
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
         loginPage.clickLoginButton ();
@@ -55,9 +49,6 @@ public class PostTest extends BaseTest{
 
     @Test
     public void uploadAnImageInJPGFormat(){
-        String Username = "nodari.amoev2@gmail.com";
-        String Password = "Nodari234";
-
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
         loginPage.clickLoginButton ();
@@ -76,9 +67,6 @@ public class PostTest extends BaseTest{
 
     @Test
     public void uploadAnImageInJPEGFormat(){
-        String Username = "nodari.amoev2@gmail.com";
-        String Password = "Nodari234";
-
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
         loginPage.clickLoginButton ();
@@ -97,9 +85,6 @@ public class PostTest extends BaseTest{
 
     @Test
     public void addImageTwoMb(){
-        String Username = "nodari.amoev2@gmail.com";
-        String Password = "Nodari234";
-
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
         loginPage.clickLoginButton ();
@@ -117,9 +102,6 @@ public class PostTest extends BaseTest{
 
     @Test
     public void viewSomeoneElsePost(){
-        String Username = "nodari.amoev2@gmail.com";
-        String Password = "Nodari234";
-
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
         loginPage.clickLoginButton ();
@@ -130,9 +112,6 @@ public class PostTest extends BaseTest{
 
     @Test
     public void EditingPost(){
-        String Username = "nodari.amoev2@gmail.com";
-        String Password = "Nodari234";
-
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
         loginPage.clickLoginButton ();
@@ -155,9 +134,6 @@ public class PostTest extends BaseTest{
     }
     @Test
     public void deletePost(){
-        String Username = "nodari.amoev2@gmail.com";
-        String Password = "Nodari234";
-
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
         loginPage.clickLoginButton ();
@@ -176,9 +152,6 @@ public class PostTest extends BaseTest{
 
     @Test
     public void uploadAnImageInPdfFormat(){
-        String Username = "nodari.amoev2@gmail.com";
-        String Password = "Nodari234";
-
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
         loginPage.clickLoginButton ();
@@ -193,9 +166,6 @@ public class PostTest extends BaseTest{
 
     @Test
     public void uploadAnImageInGifFormat(){
-        String Username = "nodari.amoev2@gmail.com";
-        String Password = "Nodari234";
-
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
         loginPage.clickLoginButton ();
@@ -208,9 +178,6 @@ public class PostTest extends BaseTest{
     }
     @Test
     public void selectAnImageLargerThan2MB(){
-        String Username = "nodari.amoev2@gmail.com";
-        String Password = "Nodari234";
-
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
         loginPage.clickLoginButton ();
@@ -227,11 +194,8 @@ public class PostTest extends BaseTest{
     @Test
     @Description("Checking if other users' posts have been successfully viewed with Admin")
     public void viewSomeoneElsePostAdmin(){
-        String Username ="amoev.nodari@gmail.com";
-        String Password ="Nodari234";
-
-        loginPage.enterUserName(Username);
-        loginPage.enterPassword(Password);
+        loginPage.enterUserName(adminUsername);
+        loginPage.enterPassword(adminPassword);
         loginPage.clickLoginButton();
 
         headerPage.getChattyLogoTitle ().click ();
@@ -242,37 +206,28 @@ public class PostTest extends BaseTest{
 
     @Test
     public void deletePostByUser(){
-        String Username ="amoev.nodari@gmail.com";
-        String Password ="Nodari234";
-
-        loginPage.enterUserName(Username);
-        loginPage.enterPassword(Password);
+        loginPage.enterUserName(adminUsername);
+        loginPage.enterPassword(adminPassword);
         loginPage.clickLoginButton();
         postPage.adminDeletePostByUser ();
     }
     @Test
     public void editingPostByUser(){
-        String Username ="amoev.nodari@gmail.com";
-        String Password ="Nodari234";
-
-        loginPage.enterUserName(Username);
-        loginPage.enterPassword(Password);
+        loginPage.enterUserName(adminUsername);
+        loginPage.enterPassword(adminPassword);
         loginPage.clickLoginButton();
         postPage.adminEditingUserPost ();
         profilePage.clickEditButton ();
-        postPage.getEditNamePost ().setValue ("Кузмин");
-        postPage.getEditSurnamePost ().setValue ("Кузя");
+        postPage.getEditNamePost ().setValue ("Filipp");
+        postPage.getEditSurnamePost ().setValue ("Kirkorov");
         postPage.clickSaveButton ();
         sleep(3000);
     }
 
     @Test
     public void recentlyOnlineUsersSection(){
-        String Username ="amoev.nodari@gmail.com";
-        String Password ="Nodari234";
-
-        loginPage.enterUserName(Username);
-        loginPage.enterPassword(Password);
+        loginPage.enterUserName(adminUsername);
+        loginPage.enterPassword(adminPassword);
         loginPage.clickLoginButton();
 
         headerPage.getChattyLogoTitle ().click ();

@@ -1,16 +1,12 @@
+import com.codeborne.selenide.Condition;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
 
-import java.io.File;
-import java.io.StringReader;
-
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.sleep;
 
-@Category(Smoke.class)
+
 public class LoginTest extends BaseTest {
 
     @Feature("Admin Login")
@@ -18,56 +14,58 @@ public class LoginTest extends BaseTest {
     @Test
     @Description("Successful Authorization with Admin")
     public void successWithValidDataAdmin(){
-        String Username = "amoev.nodari@gmail.com";
-        String Password = "Nodari234";
-
-        loginPage.enterUserName (Username);
-        loginPage.enterPassword (Password);
+        loginPage.enterUserName (adminUsername);
+        loginPage.enterPassword (adminPassword);
         loginPage.clickLoginButton ();
-        sleep (3000);
+        headerPage.getChattyLogoTitle ().shouldHave (Condition.visible);
     }
 
+
     @Test
+    @Feature("Admin Login")
+    @DisplayName("Empty Username and Password")
+    @Description("Check if login fails with empty username and password for Admin")
     public void emptyUsernameAndPasswordAdmin(){
-        String Username = "";
-        String Password = "";
-
-        loginPage.enterUserName (Username);
-        loginPage.enterPassword (Password);
+        loginPage.enterUserName ("");
+        loginPage.enterPassword ("");
         loginPage.clickLoginButton ();
     }
 
     @Test
+    @Feature("Admin Login")
+    @DisplayName("Success with Invalid Password")
+    @Description("Check if login fails with invalid password for Admin")
     public void successWithInvalidPasswordAdmin(){
-        String Username = "amoev.nodari@gmail.com";
-        String Password = "Nodari23";
-
-        loginPage.enterUserName (Username);
-        loginPage.enterPassword (Password);
+        loginPage.enterUserName (adminUsername);
+        loginPage.enterPassword (adminInvalidPassword);
         loginPage.clickLoginButton ();
         loginPage.getErrorMessage ().setValue ("User not found. Please register.");
         sleep(10000);
     }
 
     @Test
+    @Feature("Admin Login")
+    @DisplayName("Success with Empty Username")
+    @Description("Check if login fails with empty username for Admin")
     public void successWithEmptyUsernameAdmin(){
-        String Username = "";
-        String Password = "Nodari234";
-
-        loginPage.enterUserName (Username);
-        loginPage.enterPassword (Password);
+        loginPage.enterUserName ("");
+        loginPage.enterPassword (adminPassword);
         loginPage.clickLoginButton ();
     }
 
     @Test
+    @Feature("Admin Login")
+    @DisplayName("Password Icon Visibility")
+    @Description("Check if password toggle icon is visible for Admin")
     public void passwordIconVisibilityAdmin(){
-        String Password = "Nodari234";
-
-        loginPage.enterPassword (Password);
+        loginPage.enterPassword (adminPassword);
         loginPage.clickPasswordToggleIcon ();
     }
 
     @Test
+    @Feature("Admin Login")
+    @DisplayName("Password Displayed")
+    @Description("Check if password is displayed for Admin")
     public void passwordIsDisplayedAdmin(){
         loginPage.getDisplayedPassword ().setValue ("Password");
     }
@@ -78,8 +76,6 @@ public class LoginTest extends BaseTest {
     @DisplayName ("Success Login")
     @Test@Description("Successful Authorization with User")
     public void successWithValidDataUser(){
-        String Username = "nodari.amoev2@gmail.com";
-        String Password = "Nodari234";
 
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
@@ -87,20 +83,20 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
+    @Feature("User Login")
+    @DisplayName("Empty Username and Password")
+    @Description("Check if login fails with empty username and password for User")
     public void emptyUsernameAndPasswordUser(){
-        String Username = "";
-        String Password = "";
-
-        loginPage.enterUserName (Username);
-        loginPage.enterPassword (Password);
+        loginPage.enterUserName ("");
+        loginPage.enterPassword ("");
         loginPage.clickLoginButton ();
     }
 
     @Test
+    @Feature("User Login")
+    @DisplayName("Success with Invalid Password")
+    @Description("Check if login fails with invalid password for User")
     public void successWithInvalidPasswordUser(){
-        String Username = "nodari.amoev@2gmail.com";
-        String Password = "Nodari23";
-
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
         loginPage.clickLoginButton ();
@@ -109,24 +105,28 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
+    @Feature("User Login")
+    @DisplayName("Success with Empty Username")
+    @Description("Check if login fails with empty username for User")
     public void successWithEmptyUsernameUser(){
-        String Username = "";
-        String Password = "Nodari234";
-
         loginPage.enterUserName (Username);
         loginPage.enterPassword (Password);
         loginPage.clickLoginButton ();
     }
 
     @Test
+    @Feature("User Login")
+    @DisplayName("Password Icon Visibility")
+    @Description("Check if password toggle icon is visible for User")
     public void passwordIconVisibilityUser(){
-        String Password = "Nodari234";
-
         loginPage.enterPassword (Password);
         loginPage.clickPasswordToggleIcon ();
     }
 
     @Test
+    @Feature("User Login")
+    @DisplayName("Password Displayed")
+    @Description("Check if password is displayed for User")
     public void passwordIsDisplayedUser(){
         loginPage.getDisplayedPassword ().setValue ("Password");
     }

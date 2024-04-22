@@ -21,10 +21,17 @@ public class BaseTest {
     HomePage homePage = new HomePage ();
     HeaderPage headerPage = new HeaderPage ();
     ProfilePage profilePage = new ProfilePage ();
+    RegisterPage registerPage = new RegisterPage ();
+
+
+
     String Username = "nodari.amoev2@gmail.com";
     String Password = "Nodari234";
     String adminUsername = "amoev.nodari@gmail.com";
+
     String adminPassword = "Nodari234";
+
+    String adminInvalidPassword = "Nodari23";
 
 
 }
